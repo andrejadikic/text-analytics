@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entertainment Booking Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div class="testbox">
+  <form (submit)="extract()">
+    <div class="banner">
+      <h1>Entertainment Booking Form</h1>
+    </div>
+    <div class="item">
+      <p>Text</p>
+      <textarea [(ngModel)]="text" rows="5" name="text" ></textarea>
+    </div>
+    <div class="item">
+      <p>Language</p>
+        <select [(ngModel)]= "language" name="language" >
+          <option value="auto">Auto</option>
+          <option value="en">English</option>
+          <option value="it">Italian</option>
+        </select>
+    </div>
+
+    <div class="item">
+      <p>Include</p>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="abstractCheck"
+          [checked]="abstract"
+          (change)="abstract = !abstract"/>
+        <label class="form-check-label" for="abstractCheck">Abstract</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="imageCheck"
+          [checked]="image"
+          (change)="image = !image"/>
+        <label class="form-check-label" for="imageCheck">Image</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="categoriesCheck"
+          [checked]="categories"
+          (change)="categories = !categories"/>
+        <label class="form-check-label" for="categoriesCheck">Categories</label>
+      </div>
+    </div>
+
+    <div class="item">
+      <label class="form-label" for="customRange1">Min confidence</label>
+      <div class="range col-2">
+        <input type="range" class="form-range" id="customRange1"  min="0" step="any" max="1" [(ngModel)]="minConfidence" name="minConfidence" />
+      </div>
+    </div>
+
+    <div class="btn-block">
+      <button type="submit">SEND</button>
+    </div>
+  </form>
+</div>
+
+<div>
+  <div *ngFor="let post of entityExtractions; let i = index;" class="mb-2">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-3 p-4">
+          <img *ngIf=post.image?.full [src]= post.image?.full class="img-fluid rounded-start" style="max-width:260px" >
+        </div>
+        <div class="col-md-9 ">
+          <div class="card-body ">
+            <h5 class="card-title">{{ i+1 }}. {{ post.spot }}</h5>
+            <p class="card-text" *ngIf=post.abstract> {{ post.abstract }}</p>
+
+            <p class="card-text">
+              <small class="text-black" *ngIf=post.categories >Categories: </small>
+              <small class="text-muted" *ngFor="let category of post.categories;">
+                <small class="text-decoration-underline">{{category}}</small>
+                <small class="text-decoration-none">&nbsp;&nbsp;</small>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+

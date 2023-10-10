@@ -1,0 +1,45 @@
+<div class="row g-0">
+  <div class="col-lg-6">
+    <div class="card-body p-md-5 mx-md-4">
+
+      <div class="text-center">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+             style="width: 185px;" alt="logo">
+        <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+      </div>
+
+      <form (submit)="setToken()">
+        <p>Please enter your token</p>
+
+        <div class="form-outline mb-4">
+          <input type="email" id="name" name="name" class="form-control" [(ngModel)]="token"
+                 placeholder="Token" />
+        </div>
+
+        <div class="text-center pt-1 mb-5 pb-1">
+          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
+            in</button>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center pb-4">
+          <p class="mb-0 me-2">Don't have a token?</p>
+          <a  href="https://dandelion.eu/profile/dashboard/">
+            <button type="button" class="btn btn-outline-danger">Create new</button>
+          </a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+      <h4 class="mb-4">We are more than just a company</h4>
+      <p class="small mb-0">
+        Extract meaning from unstructured text and put it in context with a simple API.
+        Entity Extraction: find places, people, brands, and events in documents and social media.
+        Thanks to its revolutionary technology, Dandelion API works well even on short and malformed texts in English, French, German, Italian, Spanish, Portuguese and Russian.</p>
+    </div>
+  </div>
+</div>
+
