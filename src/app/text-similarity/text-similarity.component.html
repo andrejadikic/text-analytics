@@ -1,1 +1,37 @@
-<p>text-similarity works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entertainment Booking Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div class="testbox">
+  <form (submit)="compare()">
+    <div class="banner">
+      <h1>Entertainment Booking Form</h1>
+    </div>
+
+    <div class="name-item mt-2" >
+      <p class="m-2">Text1</p>
+      <textarea [(ngModel)]="text1" rows="5" name="text1" ></textarea>
+    </div>
+    <div class="name-item">
+      <p class="m-2">Text2</p>
+      <textarea [(ngModel)]="text2" rows="5" name="text2" ></textarea>
+    </div>
+
+    <div class="btn-block">
+      <button type="submit">SEND</button>
+    </div>
+  </form>
+</div>
+
+<div>
+    <h2 class="card-title align-items-center align-content-center testbox" > {{ similarity }}</h2>
+</div>
+</body>
+</html>
+
+
+

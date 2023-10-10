@@ -89,4 +89,11 @@ export class DandelionService {
         })
       );
   }
+
+  compareText(params: HttpParams): Observable<number> {
+    return this.httpClient.get<any>(`${this.apiUrl}`+ `${this.textUrl}`, {params})
+      .pipe(
+        map((response: any) => response.similarity as number)
+      );
+  }
 }
