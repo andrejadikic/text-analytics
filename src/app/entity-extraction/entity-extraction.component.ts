@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {EntityExtraction} from "../model";
 import {DandelionService} from "../services/dandelion.service";
-import {FormGroup} from "@angular/forms";
 import {HttpParams} from "@angular/common/http";
 
 @Component({
@@ -9,7 +8,7 @@ import {HttpParams} from "@angular/common/http";
   templateUrl: './entity-extraction.component.html',
   styleUrls: ['./entity-extraction.component.css']
 })
-export class EntityExtractionComponent implements OnInit{
+export class EntityExtractionComponent{
 
   language: string = "auto"
   abstract: boolean = false
@@ -19,14 +18,6 @@ export class EntityExtractionComponent implements OnInit{
   minConfidence: number = 0;
   entityExtractions: EntityExtraction[] = [];
   constructor(private postService: DandelionService) { }
-
-  ngOnInit(): void {
-    this.postService.getPosts().subscribe({
-        next: entities => this.entityExtractions = entities,
-        error: err => console.log(err),
-      }
-    );
-  }
 
   extract(): void{
     let include = '';
@@ -52,12 +43,6 @@ export class EntityExtractionComponent implements OnInit{
       .set('include', include)
       .set('min_confidence', this.minConfidence)
       .set('token', localStorage.getItem("token") || '');
-
-
-    console.log(this.language)
-    console.log(this.text)
-    console.log(include)
-    console.log(this.minConfidence)
 
     this.postService.extractEntities(params).subscribe({
         next: entities => this.entityExtractions = entities,

@@ -1,1 +1,8 @@
-<p>history works!</p>
+<h1>History:</h1>
+<ul class="list-group list-group-light">
+  <li class="list-group-item" *ngFor="let history of getHistory();">
+    [{{history.timestamp | date : 'dd.MM.yyyy: HH:mm:ss'}}]
+    {{history.method}}
+    {{history.endpoint}}
+  </li>
+</ul>

@@ -1,1 +1,42 @@
-<p>sentiment-analysis works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entertainment Booking Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div class="testbox">
+  <form (submit)="compare()">
+    <div class="banner">
+      <h1>Sentiment Analysis</h1>
+    </div>
+    <div class="item">
+      <p>Text</p>
+      <textarea [(ngModel)]="text" rows="5" name="text" ></textarea>
+    </div>
+    <div class="item">
+      <p>Language</p>
+      <select [(ngModel)]= "language" name="language" >
+        <option value="auto">Auto</option>
+        <option value="en">English</option>
+        <option value="it">Italian</option>
+      </select>
+    </div>
+
+    <div class="btn-block">
+      <button type="submit">SEND</button>
+    </div>
+  </form>
+</div>
+
+<div>
+  <div>
+    <h3 class="card-title align-items-center align-content-center testbox" [style.backgroundColor]="interpolate()" > {{ similarity.type }}</h3>
+  </div>
+</div>
+</body>
+</html>
+
+
+

@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {EntityExtraction} from "../model";
+import {Component} from '@angular/core';
 import {DandelionService} from "../services/dandelion.service";
 import {HttpParams} from "@angular/common/http";
 
